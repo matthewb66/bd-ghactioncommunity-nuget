@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <RootNamespace>Microsoft.Maui.Controls.Compatibility.iOS.UnitTests</RootNamespace>
+    <AssemblyName>Microsoft.Maui.Controls.Compatibility.iOS.UnitTests</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Controls\src\Core\Controls.Core-net6.csproj" />
+    <ProjectReference Include="..\..\..\..\Core\src\Core-net6.csproj" />
+    <ProjectReference Include="..\..\..\Core\src\Compatibility-net6.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\ControlGallery\src\UITests.Shared\Utilities\NumericExtensions.cs" />
+    <Compile Include="..\..\..\ControlGallery\src\UITests.Shared\Utilities\ParsingUtils.cs" />
+  </ItemGroup>
+
+</Project>

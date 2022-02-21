@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Microsoft.Maui.Controls.UITests</RootNamespace>
+    <AssemblyName>Microsoft.Maui.Controls.Android.UITests</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <Nullable>disable</Nullable>
+    <DefineConstants>$(DefineConstants);__ANDROID__;UITEST;__SHELL__</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;0618</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;0618</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="3.0.2" />
+    <PackageReference Include="Xamarin.UITest" Version="3.0.15" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Controls\tests\CustomAttributes\Controls.CustomAttributes.csproj" />
+    <ProjectReference Include="..\..\..\..\Controls\Maps\src\Controls.Maps-net6.csproj" />
+    <ProjectReference Include="..\..\..\..\Controls\src\Xaml\Controls.Xaml-net6.csproj" />
+    <ProjectReference Include="..\..\..\..\Controls\src\Core\Controls.Core-net6.csproj" />
+    <ProjectReference Include="..\..\..\..\Core\src\Core-net6.csproj" />
+  </ItemGroup>
+
+  <Target Name="_CopyXamarinUITestFiles" AfterTargets="Build">
+    <ItemGroup>
+      <_XamarinUITestFiles Include="$(NuGetPackageRoot)Xamarin.UITest\%(Version)\**" Condition="@(PackageReference -> '%(Identity)') == 'Xamarin.UITest'" InProject="False" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_XamarinUITestFiles)" DestinationFolder="$(SolutionDir)packages\Xamarin.UITest.AnyVersion\%(RecursiveDir)" ContinueOnError="true" Retries="0" />
+  </Target>
+
+  <Import Project="..\..\src\Issues.Shared\Compatibility.ControlGallery.Issues.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\src\UITests.Shared\Compatibility.UITests.projitems" Label="Shared" />
+
+</Project>

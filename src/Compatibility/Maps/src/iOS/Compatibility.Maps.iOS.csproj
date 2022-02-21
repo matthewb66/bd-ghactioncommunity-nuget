@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <AssemblyName>Microsoft.Maui.Controls.Compatibility.Maps.iOS</AssemblyName>
+    <RootNamespace>Microsoft.Maui.Controls.Compatibility.iOS</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Graphics" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Controls\Maps\src\Controls.Maps-net6.csproj" />
+    <ProjectReference Include="..\..\..\..\Controls\src\Core\Controls.Core-net6.csproj" />
+    <ProjectReference Include="..\..\..\..\Core\src\Core-net6.csproj" />
+    <ProjectReference Include="..\..\..\Core\src\Compatibility-net6.csproj" />
+  </ItemGroup>
+
+</Project>
