@@ -29,8 +29,8 @@ jobs:
         upgrade_major: true
 #         detect_opts: detect.detector.buildless=true,detect.maven.buildless.legacy.mode=false
         output: blackduck-output
-#         debug: 9
-        sarif: blackduck-sarif.json
+        debug: 9
+#         sarif: blackduck-sarif.json
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
