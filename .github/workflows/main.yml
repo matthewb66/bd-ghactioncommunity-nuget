@@ -22,8 +22,8 @@ jobs:
 #       if: ${{github.event_name == 'pull_request'}}
       uses: synopsys-sig-community/blackduck-direct-scan-action@v1
       with:
-        url: ${{ secrets.BLACKDUCK_URL }}
-        token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+        bd_url: ${{ secrets.BLACKDUCK_URL }}
+        bd_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
 #         fix_pr: false
 #         comment_on_pr: true
         upgrade_major: true
