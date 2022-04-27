@@ -20,7 +20,7 @@ jobs:
     # Runs special workflow steps for pull requests
     - name: Black Duck security scan
 #       if: ${{github.event_name == 'pull_request'}}
-      uses: matthewb66/blackduck-scan-directguidance@v4
+      uses: synopsys-sig-community/blackduck-direct-scan-action@v1
       with:
         url: ${{ secrets.BLACKDUCK_URL }}
         token: ${{ secrets.BLACKDUCK_API_TOKEN }}
